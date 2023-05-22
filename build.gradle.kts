@@ -10,5 +10,6 @@ repositories {
 }
 
 dependencies {
-
+    compileOnly("org.projectlombok:lombok:1.18.26")
+    annotationProcessor("org.projectlombok:lombok:1.18.26")
 }
