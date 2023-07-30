@@ -1,14 +1,14 @@
-package ru.unlegit.synergy.module3.tests.treeset;
+package ru.unlegit.synergy.module3.tests.hashset;
 
 import ru.unlegit.synergy.module3.Set;
-import ru.unlegit.synergy.module3.treeset.TreeSet;
+import ru.unlegit.synergy.module3.hashset.HashSet;
 
-public final class TreeSetTest {
+public final class HashSetTest {
 
     private static final String SEPARATION_LINE = "\n".concat("-".repeat(50)).concat("\n");
 
     public static void main(String[] args) {
-        Set<String> set = TreeSet.create();
+        Set<String> set = new HashSet<>();
 
         set.add("One");
         set.add("Two");
