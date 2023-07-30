@@ -3,14 +3,12 @@ package ru.unlegit.synergy.module3.treemap;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 
 @Getter
 @Setter
-@ToString
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public final class TreeNode<K, V> {
+final class TreeNode<K, V> {
 
     K key;
     V value;
