@@ -10,8 +10,8 @@ import java.util.Optional;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.BiConsumer;
 
-@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public final class TreeMap<K, V> {
 
     public static <K, V> TreeMap<K, V> create(Comparator<K> keyComparator) {
@@ -63,11 +63,14 @@ public final class TreeMap<K, V> {
     }
 
     private TreeNode<K, V> get(TreeNode<K, V> current, K key) {
-        return current == null ? null : switch (keyComparator.compare(key, current.getKey())) {
-            case -1 -> get(current.getLeft(), key);
-            case 0 -> current;
-            default -> get(current.getRight(), key);
-        };
+        if (current == null) return null;
+
+        int comparisonResult = keyComparator.compare(key, current.getKey());
+
+        if (comparisonResult < 0) return get(current.getLeft(), key);
+        if (comparisonResult == 0) return current;
+
+        return get(current.getRight(), key);
     }
 
     public void forEach(BiConsumer<K, V> handler) {
